@@ -28,24 +28,24 @@
 // while ( n >= 10 && n <= 99) {
 //     if ( (n%4 === 0) && (n%6 !==0) ){
 //     alert(n);
-// }   ++n;
+// }   n +=2;
 // }
 
 // Задача 3
-let usersNumber = +prompt(`Введите сколько чисел вы хотите ввести`);
-let counterPositiveNumbers = 0;
-let  counterNegativeNumbers = 0;
-let counterZero = 0;
-while (usersNumber--) {
-    randomNumber = +prompt ('Введите ваше число');
-    if ( randomNumber > 0) {
-        counterPositiveNumbers++;
-    } else if  ( randomNumber < 0) {
-        counterNegativeNumbers++;
-    } else {
-        counterZero++
-    }
-}
-alert (`Количество нулей: ${counterZero}`);
-alert (`Количество положительных: ${counterPositiveNumbers}`);
-alert (`Количество отрицательных: ${counterNegativeNumbers}`);
+// let usersNumber = +prompt(`Введите сколько чисел вы хотите ввести`);
+// let counterPositiveNumbers = 0;
+// let  counterNegativeNumbers = 0;
+// let counterZero = 0;
+// while (usersNumber--) {
+//     randomNumber = +prompt ('Введите ваше число');
+//     if ( randomNumber > 0) {
+//         counterPositiveNumbers++;
+//     } else if  ( randomNumber < 0) {
+//         counterNegativeNumbers++;
+//     } else {
+//         counterZero++
+//     }
+// }
+// alert (`Количество нулей: ${counterZero}`);
+// alert (`Количество положительных: ${counterPositiveNumbers}`);
+// alert (`Количество отрицательных: ${counterNegativeNumbers}`);
