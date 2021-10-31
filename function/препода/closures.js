@@ -29,16 +29,14 @@
 //     let counter = 0;
 //     return function (value) {
 //         counter = value;
-//         if (value < 100){
-//         (function (){
-//             return counter++
-//         })()
-//         } else {
-//         (function (){
-//             return counter--;
-//         })()
+//         if (value) { if (value < 100){
+//             counter++;
+//             return counter;
+//         } else { counter--;
+//             return counter;
+//         }
+//         }
 //     }
-// }
 // }
 
 // const foo = funcCounter();
@@ -48,3 +46,5 @@
 // console.log(foo());
 // console.log(foo());
 // console.log(foo());
+
+

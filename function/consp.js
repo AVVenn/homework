@@ -9,15 +9,15 @@
 // switcher() // false
 // switcher() // true
 
-function switcherMaker () {
-    let val = false;
-    return function () {
-        val = !val;
-        return val;
-    };
-}
+// function switcherMaker () {
+//     let val = false;
+//     return function () {
+//         val = !val;
+//         return val;
+//     };
+// }
 
-const switcher = switcherMaker();
+// const switcher = switcherMaker();
 
 // console.log(switcher());
 // console.log(switcher());
@@ -32,39 +32,29 @@ const switcher = switcherMaker();
 // count() // 53
 
 
-function countMaker () {
-    let n = 0;
-
-    return function (val) {
-        if (val) {
-            n = val;
-        }
-        n = n + 1;
-        return n;
-    };
-}
-
-const count = countMaker();
-
-console.log(count());
-console.log(count());
-console.log(count());
-console.log(count());
-console.log(count());
-console.log(count());
-console.log(count(50));
-console.log(count());
-console.log(count());
-
-
-
 // function countMaker () {
 //     let n = 0;
-//     return function () {
-//         return Boolean(n);
-//     } 
-// }
-// const switcher = countMaker ();
-// // const count = countMaker ();
 
-// console.log (switcher ());
+//     return function (val) {
+//         if (val) {
+//             n = val;
+//         }
+//         n = n + 1;
+//         return n;
+//     };
+// }
+
+// const count = countMaker();
+
+// console.log(count());
+// console.log(count());
+// console.log(count());
+// console.log(count());
+// console.log(count());
+// console.log(count());
+// console.log(count(50));
+// console.log(count());
+// console.log(count());
+
+
+
