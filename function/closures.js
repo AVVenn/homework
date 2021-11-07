@@ -16,6 +16,7 @@
 // console.log(toggle());
 // console.log(toggle());
 // console.log(toggle());
+
 // ________________________________________________________________________________________________
 
 // 2. Создать функцию funcCounter(), которая способна
@@ -52,6 +53,39 @@
 // loops();
 
 // ________________________________________________________________________________________________________________
+// препода
+
+// function counterMaker () {
+//     let counter = 0;
+//     let ascend = true;
+
+//     return (val) => {
+//         if (val && val === 0) {
+//             counter = val;
+//             ascend = !(val >= 100);
+//             return counter;
+//         }
+
+//         if (ascend) {
+//             return ++counter;
+//         } 
+//         return --counter;      
+//     };
+// }
+
+// counter = counterMaker();
+// console.log(counter());
+// console.log(counter());
+// console.log(counter(105));
+// console.log(counter());
+// console.log(counter());
+// console.log(counter(10));
+// console.log(counter());
+// console.log(counter());
+// console.log(counter());
+
+
+// ________________________________________________________________________________________________________________
 // function funxCounter (counter = 0, toggle = true) {
 //     return function (i) {
 //         if (i === undefined && toggle === true) {
@@ -86,10 +120,6 @@
 // console.log (foo(10));
 // console.log (foo());
 // console.log (foo());
-
-
-
-
 // ________________________________________________________________________________________________________________
 
 // 3. Создать функцию classNameEditor(), которая
@@ -117,21 +147,36 @@
 
 
 // _____________________________________________________________________________________________________
+// препод решал
+// function classNameEditorMaker () {
+//     let className = '';
+
+//     return function (val, isAdding) {
+//         if (val && isAdding) {
+//             className += ' ' + val;
+//         }
+
+//         if (val && isAdding === false) {
+//             const classNameArr = className.split(' ');
+//             const indexToDelete = className.indexOf(val);
+//             if(indexToDelete >= 0) {
+//                 classNameArr.splice(indexToDelete, 1);
+//                 className = classNameArr.join(' ');
+//             }
+//         }   
+
+//         return className.trim();
+//     };
+// }
 
 
+// const classNameEd = classNameEditorMaker();
 
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(classNameEd('test', true));
+// console.log(classNameEd('smth', true));
+// console.log(classNameEd('adasdsd', false));
+// console.log(classNameEd
+// _____________________________________________________________________________________________________
 
 
 // function sum (a,b) { 
@@ -151,14 +196,20 @@
 
 // const spiedSum = spyMe(sum);
 
-
-
-
-
-
 // const result = spiedSum(10, 2);
 // console.log('VALERCHIK',result);
 
 
 
+// _____________________________________________________________________________________________________________________
 
+// function avg () {
+//     let args = [];
+
+//     for (let i = 0; i < arguments.length; i++) {
+//         args.push(arguments[i]);
+//     }
+
+//     console.log(args);
+// }
+// console.log(avg(2,3,4,3,4,5,342,4,23,423,4));

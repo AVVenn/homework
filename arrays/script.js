@@ -125,7 +125,7 @@
 // }
 // let result = arr.every (function (item){
 //     if(item === +item){
-//         return 'hoba';
+//         return true;
 //     }
 // });
 
