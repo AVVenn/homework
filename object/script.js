@@ -62,7 +62,6 @@
 // }
 // var1(student);
 
-//вариант с редюс сделать
 // ___________________________________________________________________________________
 
 // const arr = [
@@ -90,6 +89,7 @@
 
 // validOrNo (arr);
 
+// методы не верные выбраны forEach нужен скрее всего
 // -----------------------------------
 
 // 1.1.2 function validOrNo (array) {
@@ -115,7 +115,7 @@
 //     {a: 95, b: 7}
 // ]
 
-// const arr2 = [];
+// const arr2 = [];  // не нужно мап и так вернет новый массив
 
 // function getNewArray (array){
 //     array.map(getNeWObj);
@@ -145,7 +145,204 @@
 // ]
 
 // function getNewArray (array) {
-//     let newArr = (arr.map( item => Object.values(item))).flat();
+//     let newArr = (arr.map( item => Object.values(item))).flat();  // сложно написано
 //     return console.log(newArr);
 // }
 // getNewArray (arr);
+
+// ___________________________________________________________________________________
+// На паре
+// const person = {
+//     name: `John`,
+//     age: 23,
+//     stack: [`HTML`, `CSS`, `JS`],
+//     showStack () {
+//         this.stack.forEach( (item) => console.log(item));
+//     }
+// }
+
+// const person2 = {
+//     name: `David`,
+//     age: 24,
+//     stack: [`C++`, `JAVA`, `SQL`],
+//     run: function (){
+//         console.log(`${this.name} runs`);
+//     },
+//     showStack () {
+//         this.stack.forEach( (item) => console.log(item));
+//     }
+// };
+
+// let showStack = person.showStack.bind(person);
+// let showStack2 = person2.showStack.bind(person2);
+
+
+// setTimeout (showStack, 1000);
+// setTimeout (showStack2, 2000);
+
+// setTimeout(() => person.showStack(), 1000); 
+// setTimeout(() => person2.showStack(), 2000); 
+
+// ___________________________________________________________________________________
+// Препод
+// function showStack () {
+//     this.stack.forEach((item) => {
+//         console.log(item);
+//     });    
+// }
+
+// const person = {
+//     name: 'John',
+//     age: 23,
+//     stack: ['HTML', 'CSS', 'JS'],
+//     showStack
+// };
+
+// const person2 = {
+//     name:'David',
+//     age: 24,
+//     stack: ['C++', 'JAVA', 'SQL'],
+//     showStack,
+//     run: function () {
+//         console.log(`${this.name} runs`);
+//     }
+// };
+
+// // person.showStack()
+// // person2.showStack()
+
+// setTimeout(() => {
+//     person.showStack();
+// },1000); // person showStack
+// setTimeout(person2.showStack.bind(person2),1000 ); // person2 showStack
+// ___________________________________________________________________________________
+
+
+// 1. Дан объект:
+// var person = {
+// name:’Pablo Picasso’
+// }
+// Создайте функцию addName(obj, name), которая
+// добавляет в список имя name, но только если его там еще
+// нет:
+// addName(person, 'Garcia');
+// person.name=>'Pablo Picasso Garcia'
+// addName(person, 'Pablo');
+// без изменений (имя уже существует)
+// addName(person, 'Rodrigez');
+// person.name=>'Pablo Picasso Garcia Rodrigez'
+
+// 1
+// let person = {
+//     name: `Pablo Picasso`, 
+// }
+
+// function addName (obj, name){
+//     let arr = obj.name.split(" "); 
+//     if ( arr.includes(name) === true ) {
+//         console.log(`без изменений (имя уже существует)`);
+//         return (obj.name);
+//     } 
+//     obj.name +=" " + name;
+//     console.log(obj.name);
+// }
+
+// addName (person, 'Pablo');
+// addName (person, 'Garsia');
+// addName (person, 'Pablo');
+// addName (person, `Picasso`);
+// addName (person, 'Petrov');
+// console.log (person);
+
+// 2
+// function removeName (obj, name) {
+//     let arr = obj.name.split(" "); 
+//     if ( arr.indexOf(name) === -1 ) {
+//         console.log(`без изменений (такого имени нет)`);
+//         return (obj.name);
+//     } 
+//     arr.splice(arr.indexOf(name), 1);
+//     obj.name = arr.join (' ');
+//     console.log (obj.name);
+// }
+
+// removeName (person, 'Garsia');
+// removeName(person, 'Akakij');
+// removeName(person, 'Petrov');
+// console.log (person);
+
+// ___________________________________________________________________________________
+
+// 3. Существует массив(длина: 4) футболистов (каждый
+//     футболист – это объект). Напишите функцию
+//     addAbility(array), которая добавляет к каждому
+//     объекту массива функцию run(), при запуске которой
+//     выводится сообщение (“ИМЯ_ФУТБОЛИСТА is
+//     running”)
+
+// let arr = [
+//     {name: `Ronaldo`},
+//     {name: `Rooney`},
+//     {name:` Gerald`},
+//     {name: `Lampard`}
+// ];
+
+// function addAbility (arr) {
+//     arr.forEach ( item => item.run = function() {
+//         console.log (`${this.name} is running`) 
+//     },);
+// }
+
+// addAbility(arr);
+// console.log (arr);
+// arr[3].run()
+
+// if (Object.keys(item).includes(run))
+
+// ___________________________________________________________________________________
+//  4. Напишите функцию, которая вычисляет длину линий в
+// стандартной двухмерной системе координат. Координаты
+// начала и конца линий должны храниться в объектах.
+//  Создайте три линии.
+//  Вычислите их длины с помощью функции
+//  Проверьте, могут ли три линии сформировать
+// треугольник
+// Помните:
+// Длину линии можно найти по теореме Пифагора.
+// Стороны могут сформировать треугольник если длина
+// каждой стороны треугольника должны быть меньше суммы
+// длин остальных сторон.
+
+
+// const lines = {
+//     line1: {
+//         point1: {x: 1, y: 2},
+//         point2: {x: 5, y: 5}
+//     },
+//     line2: {
+//         point1: {x: 3, y: 8},
+//         point2: {x: 2, y: 1}
+//     },
+//     line3: {
+//         point1: {x: 0, y: 4},
+//         point2: {x: 3, y: 6}
+//     },
+//     arr: [],
+//     getLineLenght (toshkaA, toshkaB) {
+//         result = Math.sqrt((toshkaA.x-toshkaB.x)**2+(toshkaA.y-toshkaB.y));
+//         console.log(result);
+//         return this.arr.push(result);
+//     }, 
+//     canTriniagle (array){
+//         if(Math.max(...array) < (this.arr.reduce((accum, item) => accum += item) - Math.max(...array))) {
+//             return console.log(`lines can make triniagle`);
+//         } else {
+//             return console.log(`lines can't make triniagle`)
+//         }
+//     }
+// }
+// lines.getLineLenght(lines.line1.point1,lines.line1.point2);
+// lines.getLineLenght(lines.line2.point1,lines.line2.point2);
+// lines.getLineLenght(lines.line3.point1,lines.line3.point2);
+// lines.canTriniagle (lines.arr);
+// console.log (lines);
