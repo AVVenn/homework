@@ -68,14 +68,15 @@
 //     {a: 2, b: 1},
 //     {a: 5, b: 12},
 //     {a: 95, b: 7}
-//   ]
+// ];
 //   Используя ТОЛЬКО методы массивов (циклы запрещены):
 //   1. Вывести в консоль 'its valid', если во всех объектах поле a > b, вывести 'its invalid' если хотя бы в одном объекте a<=b
 
 // ___________________________________________________________________________________
-//1.1  function validOrNo (array) {
+// 1.1 
+// function validOrNo (array) {
 //     let result = true;
-//     let c = array.filter(item => {
+//     array.forEach(item => {    // forEach в любом случае возвращает undefined поэтому let c = array.forEach будет бессмысленным - c будет = undefined
 //         if (item.a < item.b) {
 //             result = false;
 //         } 
@@ -85,25 +86,6 @@
 //         } else {
 //             return console.log(`its no valid`);
 //         }
-// }
-
-// validOrNo (arr);
-
-// методы не верные выбраны forEach нужен скрее всего
-// -----------------------------------
-
-// 1.1.2 function validOrNo (array) {
-//     let result = true; 
-//     let c = array.map (item => {
-//         if (item.a < item.b) {
-//             result = !result;
-//         }     
-//     });
-//     if ( result === true ) {    
-//         return console.log(`its valid`);
-//     } else {
-//         return console.log(`its no valid`);
-//     }
 // }
 // validOrNo (arr);
 // ___________________________________________________________________________________
@@ -115,22 +97,31 @@
 //     {a: 95, b: 7}
 // ]
 
-// const arr2 = [];  // не нужно мап и так вернет новый массив
+// const arr2 = [];  
 
 // function getNewArray (array){
-//     array.map(getNeWObj);
+//     const arr2 = array.map(getNeWObj);
 //     console.log(arr);
 //     return console.log(arr2);
 // }
-
 // function getNeWObj (object) {
-//     let newObj = {}
+//     let newObj = {};
 //     newObj.a = object.a;
 //     newObj.b = object.b**2;
 //     arr2.push(newObj);
 // }
-
 // getNewArray (arr);
+// ------------------------------------------------
+// 2 вариант
+// const arr = [
+// 	{a:2, b:1},
+// 	{a:5, b: 12},
+// 	{a:95, b:7}
+// ];
+// const arr2 =arr.map(item => item = {a:item.a, b:item.b**2});
+// console.log(arr);
+// console.log(arr2);
+
 // ___________________________________________________________________________________
 
 //   3. С помощью метода/методов взять все поля a и b и последовательно поместить их в массив
@@ -145,8 +136,11 @@
 // ]
 
 // function getNewArray (array) {
-//     let newArr = (arr.map( item => Object.values(item))).flat();  // сложно написано
-//     return console.log(newArr);
+//     let newArr = (arr.map( item => Object.values(item)));
+//     return console.log(newArr = newArr.flat());
+
+    //// let newArr = (arr.map( item => Object.values(item))).flat();  // сложно написано
+    //// return console.log(newArr);
 // }
 // getNewArray (arr);
 
@@ -257,7 +251,7 @@
 // 2
 // function removeName (obj, name) {
 //     let arr = obj.name.split(" "); 
-//     if ( arr.indexOf(name) === -1 ) {
+//     if ( arr.indexOf(name) === -1 ) {                // findIndex тут был бы кстати
 //         console.log(`без изменений (такого имени нет)`);
 //         return (obj.name);
 //     } 

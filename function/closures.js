@@ -180,24 +180,44 @@
 
 
 // function sum (a,b) { 
-//     return a + b;
+//     return a + b;      // ф-ия сумма
 // }
 
 // function sub (a,b) {
-//     return a - b;
+//     return a - b;    // ф-ия вычитание
 // }
 
-// function spyMe (zhertva) {
-//     return function (a,b) {
+
+//функция spyMe не знает , что там написано в теле sum или sub
+
+// function spyMe (zhertva) {    // передаем функцию , которая уже в себе осуществляет необходимое действие
+//     return function (a,b) {      // вернет функция другую функцию, которая выведет НАМ слово слежка и аргументы и б
 //         console.log('СЛЕЖКА!',a,b)
-//         return zhertva(a,b);  // вернет 
+//         return zhertva(a,b);  // вернет  результат a и б , который хочет пользователь
 //     }
 // }
 
-// const spiedSum = spyMe(sum);
+// const spiedSum = spyMe(sum);  // присваиваем spiedSum return SpyMe
 
-// const result = spiedSum(10, 2);
+// const result = spiedSum(10, 2); // resut будет хранить в себе return SpiedSum
 // console.log('VALERCHIK',result);
+
+// function sum (a,b) {
+//     return a+b;
+// }
+// function minus (a,b) {
+//     return a-b;
+// }
+
+// function shpion (fKotorayaZertva) {
+//     return function (ab,ba) {
+//         console.log (`Инфа`, ab, ba);
+//         return fKotorayaZertva(ab,ba);
+//     };
+// }
+
+// const summa =  shpion(sum); // как мы узнаем как называлась функция
+// console.log (summa(10, 7));
 
 
 
