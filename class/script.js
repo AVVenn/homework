@@ -83,18 +83,17 @@
 //     constructor (){
 //         this.isOn = false;
 //     }
-//     switchDevice(){
-//         this.isOn = !this.isOn;
-//     }
-//     callSmbd (calName,switchDevice){
-// 		if (switchDevice) {
-// 			this.switchDevice();
-// 		}
+
+//     callSmbd (calName){
 //         if(this.isOn === false) {
 //             console.log(`I can't call ${calName}`)
 //         } else {
 //             console.log(`calling ${calName}`)
 //         }
+//     }
+
+//     switchDevice(){
+//         this.isOn = !this.isOn;
 //     }
 // };
 
@@ -104,8 +103,8 @@
 
 
 // class Smartphone extends Device {
-//     constructor (name, screenDiagonal, ...arg) {
-//         super(...arg);
+//     constructor (name, screenDiagonal) {
+//         super();
 //         this.name = name;
 // 		this.screenDiagonal = 'can`t be bigger than 8' ;
 //         if (screenDiagonal < 8) {
@@ -115,8 +114,8 @@
 // };
 
 // class Tablet extends Device {
-//     constructor (name, screenDiagonal, ...arg) {
-//         super(...arg);
+//     constructor (name, screenDiagonal) {
+//         super();
 //         this.name = name;
 //         this.screenDiagonal = 'can`t be smaller than 8' ;
 //         if (screenDiagonal > 8) {
@@ -163,8 +162,9 @@
 
 // class Device{
 //     constructor (batteryType) {
-//         this.batteryType = batteryType;
+//          this.batteryType = batteryType;
 //     }
+
 //     insertBattery (bat1, bat2) {
 //         this.bat1 = bat1;
 //         this.bat2 = bat2;
@@ -230,17 +230,307 @@
 // gamepad.play();
 // gamepad.play(); // Заряд батареек равен 0
 // ____________________________________________________________________________________________________________________________________________
+// 2. Создать класс Device, который имеет параметр isOn (по 
+//     умолчанию false), метод callSmbd, который принимает имя 
+//     вызываемого абонента и метод switchDevice, который 
+//     переключает параметр isOn. Позвонить абоненту можно 
+//     только тогда, когда параметр isOn == true, иначе вывести 
+//     сообщение, что звонок невозможен. Необходимо также 
+//     создать классы Smartphone(принимает имя и диагональ 
+//     экрана(не может быть больше 8)) и Tablet(принимает имя и 
+//     диагональ экрана (не может быть меньше 8)), которые 
+//     наследуют от класса Device
 
+// class Device {
+//     constructor () {
+//         this.isOn = false;
+//     }
 
-// let n = +prompt(`Введите число человек`);
-// let arr = [];
-// let s = +prompt(`Каждый s умрет`);
-// let arr2;
-// for (let i = 1; i <= n; i++) {
-//     arr.push(i);
+//     callSmbd (who) {
+//         if (this.isOn) {
+//             console.log(`you are calling ${who}`);
+//         } else {
+//             console.log(`You cant call anyone`);
+//         }
+//     }
+
+//     switchDevice () {
+//         this.isOn = !this.isOn;
+//     }
 // }
-// for (let i = 0; i < n ; i++) {
-//    arr2 = arr.splice(i,s-1);
-// }
-// console.log(arr2);
 
+// class Smartphone extends Device {
+//     constructor (name, diag) {
+//         super();
+//         this.name = name;
+//         if (diag > 8) {
+//             this.diag = 8;
+//         } else {
+//             this.diag = diag;
+//         }
+//     }
+// }
+
+// class Samsung extends Smartphone {
+//     constructor (name, diag) {
+//         super(name, diag);
+//     }
+// }
+
+// const dev = new Device();
+// dev.switchDevice();
+// dev.callSmbd('Oleg');
+// ____________________________________________________________________________________________________________________________________________
+
+
+// 3. Создать класс Battery, который инициализирует поля type,
+// energy (заряд, по умолчанию 100). Создать класс Device, 
+// который принимает параметр batteryType и метод
+// insertBattery, который принимает два параметра (две 
+// батарейки). Создать класс Gamepad, который наследует от 
+// Device. Класс Gamepad должен содержать поле model, поле 
+// isConnected (boolean) и методы connectTo(), который 
+// принимает название другого девайса и выводит сообщение 
+// типа “gamepadModel connected to TV”, метод disconnect(), 
+// который отключает Gamepad и метод play(), который 
+// отнимает 10 зарядов от каждой батареи. Если хотя бы одно 
+// поле batteryType у Device и type у Battery не совпадают, то 
+// вывести сообщение что батарейки не вставлены. 
+// Подключить один девайс к другому можно только если есть 
+// 2 батарейки. Подключить Gamepad можно только если 
+// isConnected == false. Если заряд батареек == 0, то метод 
+// play вернет сообщение с требованием замены батареек
+
+// class Battery {
+//     constructor (type) {
+//         this.type = type;
+//         this.energy = 100;
+//     }
+// }
+
+// class Device {
+//     constructor (type) {
+//         this.batteryType = type;
+//         this.btrs = [];
+//     }
+
+//     insertBattery (b1,b2) {
+//         if (b1.type !== this.batteryType
+//             || b2.type !== this.batteryType) {
+//                 console.error(`you cant insert type because batteries have different types: ${b1.type} and ${b2.type}`);
+//         } else {
+//             this.btrs.push(b1,b2);
+//         }
+//     }
+// }
+
+// class Gamepad extends Device {
+//     constructor (model, type) {
+//         super(type);
+//         this.model = model;
+//         this.isConnected = false;
+//     }
+
+//     connectTo (deviceName) {
+//         if (!this.isConnected       
+//             && this.isAllBatteriesCharged()) {
+//                 this.isConnected = true;
+//                 console.log('connected! to ' + deviceName);
+//         } else {
+//             console.log('could not connect!');
+//         }
+//     }
+    
+//     disconnect () {
+//         this.isConnected = false;
+//         console.log('Device disconnected!');
+//     }
+
+//     play () {
+//         if (this.btrs.length > 1 
+//             && this.isAllBatteriesCharged() ) {
+//             console.log('you play game!');
+//             this.btrs = this.btrs.map((btr) => ({
+//                 ...btr,
+//                 energy: btr.energy <= 0 ? 0 : btr.energy - 10
+//             }))
+//         } else {
+//             console.error('you cant play due to batteries, change them!');
+//         }
+//     }
+
+//     isAllBatteriesCharged () {
+//         return this.btrs.every(({energy}) => energy > 0 );
+//     }
+// }
+
+// const b1 = new Battery ('AAA');
+// const b2 = new Battery ('AAA');
+// const b3 = new Battery ('BBB');
+
+// const ps5gamepad = new Gamepad('ps5', 'AAA');
+
+// ps5gamepad.insertBattery(b1,b2);
+// ps5gamepad.connectTo('ps5');
+// ps5gamepad.disconnect();
+// ps5gamepad.connectTo('xbox');
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+// ps5gamepad.play();
+
+
+// ____________________________________________________________________________________________________________________________________________
+
+// class Human {
+//     constructor (name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     sayHi () {
+//         return `Hello!, ${this.name}!`;
+//     }
+// }
+// const vasya = new Human (`Vasya`, 20);
+// vasya.sayHi();
+
+// class Programmer extends Human {
+//     constructor (name, age, ...tehnologies) {
+//         super(name, age);
+//         this.tehnologies = tehnologies;  
+//     }
+//     startCoding() {
+//         return console.log(`${this.name} is coding using ${this.tehnologies}`)
+//     }
+// }
+
+// let leha = new Programmer (`Leha`, 30, `html`, `css`, `js`);
+// leha.startCoding();
+
+
+// class Sportsman extends Human {
+//     constructor (medal, ...arg) {
+//         super(...arg)
+//         this.medal = medal;
+//     }
+// }
+
+// let valera = new Sportsman(5, `Valera`, 25)
+// valera.sayHi();
+
+// class FootballPlayer extends Sportsman {
+//     constructor (team,...arg) {
+//         super(...arg)
+//         this.team = team;
+//     }
+//     run (speed) {
+//         return `${this.name} is running ${speed} kmph`
+//     }
+// }
+// let valeriy = new FootballPlayer(`Lester`,5, `Valeriy`, 25);
+// console.log(valeriy.run(35));
+// console.log(valeriy);
+
+// class HockeyPlayer extends Sportsman {
+//     constructor (weight, ...arg) {
+//         super(...arg);
+//         this.weight = weight;
+//     }
+//     pushOpponents(opponentName) {
+//         return `${this.name} pushed ${opponentName} and used ${this.weight}`
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ____________________________________________________________________________________________________________________________________________
+
+// class Human {
+//     constructor (name, age){
+//         this.name= name;
+//         this._age =age;
+//     }
+
+//     get age () {
+//         return this._age;
+//     }
+
+//     set age (value){
+//         if (value < 20) {
+//             console.log (`his age more than 20!`);
+//             return;
+//         }
+//         this._age = value;
+//     }
+    
+//     showInfo () {
+//         return `${this.age} age:${this.age}`
+//     }
+// }
+// let andr = new Human(`Andrey`, 23);
+
+// Object.defineProperty(andr, "name", {
+//     value: `Andrew`,
+//     enumerable: true,   // если true, свойство перечисляется в циклах, в противном случае циклы его игнорируют.
+//     writable: false,  //  если true, свойство можно изменить, иначе оно только для чтения.
+//     configurable: true // если true, свойство можно удалить, а эти атрибуты можно изменять, иначе этого делать нельзя.
+// });
+// let descriptor = Object.getOwnPropertyDescriptor(andr, "name");
+// console.log(descriptor);
+// andr.name = `Andrey`;  // осталось Andrew
+
+// // for (let key in andr){
+// //     console.log(key);
+// // };
+
+
+// Object.defineProperty (andr, `name`,{
+//     enumerable:false                            // поле name теперь в цикле  выводиться не будет
+// })
+
+// for (let key in andr){
+//     console.log(key);
+// };
+// console.log(andr) 
+
+
+
+// console.log(andr.age);
+// andr.age = 27;
+// console.log(andr.age);
+
+// ____________________________________________________________________________________________________________________________________________
+// Object.defineProperties(user, {
+//     name: { value: "John", writable: false },
+//     surname: { value: "Smith", writable: false },
+//     // ...
+//   });

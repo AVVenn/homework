@@ -89,9 +89,9 @@
 // .join('@')
 // .reverse()
 
-const arr = ['John', 'Peter', 'David', 'Victor', 'Andrey', 'Ahmed', 'Vasilij'];
-const arr2d = [[1,23,3], [65,213,61,12], [5,213,12]];
-const someArr = [23,2,41,2,31,23,12];
+// const arr = ['John', 'Peter', 'David', 'Victor', 'Andrey', 'Ahmed', 'Vasilij'];
+// const arr2d = [[1,23,3], [65,213,61,12], [5,213,12]];
+// const someArr = [23,2,41,2,31,23,12];
 
 // .forEach() **
 // .map() *****
@@ -108,7 +108,7 @@ const someArr = [23,2,41,2,31,23,12];
 
 
 
-console.log(result);
+// console.log(result);
 // console.log(arr);
 
 

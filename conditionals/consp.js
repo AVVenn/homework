@@ -32,8 +32,8 @@
 
 // 2. Переписать в тернарный оператор
 // x ? y : z
-// let age = 20;
 
+// let age = 20;
 // if (age < 10) {
 //     console.log('HI!');
 // } else if (age < 20) {
@@ -48,6 +48,6 @@
 // age<10 
 // ? "Hi" 
 // :age<20 
-        //  ? 'Hello' 
-        // : 'Good day!'
+// ? 'Hello' 
+// : 'Good day!'
 //)

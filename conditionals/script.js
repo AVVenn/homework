@@ -1,14 +1,14 @@
 //1. пользователь вводит 2 числа, вывести в консоль большее из них
 
-// let randomNumberOne = prompt (`Введите ваше число`);
-// let randomNumberTwo = prompt (`Введите ваше число`);
+// let randomNumberOne = prompt(`Введите ваше число`);
+// let randomNumberTwo = prompt(`Введите ваше число`);
 // if (randomNumberOne === null || randomNumberTwo === null || randomNumberOne === "" || randomNumberTwo === "" ) {
 //     console.log ('Вы ничего не ввели или отменили!');
 // } else if ( isNaN(randomNumberOne) || isNaN(randomNumberTwo)){
 //     console.log (`Введенные число(а) ${randomNumberOne} или ${randomNumberTwo} некорректны`);
-// } else if (randomNumberOne>randomNumberTwo) {
+// } else if (randomNumberOne > randomNumberTwo) {
 //     console.log (`Первое введенное число больше второго на ${randomNumberOne-randomNumberTwo}`); 
-// } else if (randomNumberOne<randomNumberTwo) { 
+// } else if (randomNumberOne < randomNumberTwo) { 
 //     console.log (`Второе введенное число больше первого на ${Math.abs(randomNumberOne-randomNumberTwo)}`);
 // }
 
@@ -29,7 +29,7 @@
 // } else if ( (randomNumberOne*randomNumberTwo) !== +userResult) {
 //     console.log ('Не Ок');
 // }
-
+// console.log(isNaN (randomNumberOne));
 
 // Решение препода 
 // let num1 = +prompt('enter num1');

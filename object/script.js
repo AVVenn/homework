@@ -76,7 +76,7 @@
 // 1.1 
 // function validOrNo (array) {
 //     let result = true;
-//     array.forEach(item => {    // forEach в любом случае возвращает undefined поэтому let c = array.forEach будет бессмысленным - c будет = undefined
+//     array.forEach(item => {    // forEach в любом случае возвращает undefined поэтому let c = array.forEach будет бессмысленным - let c будет = undefined
 //         if (item.a < item.b) {
 //             result = false;
 //         } 
@@ -89,7 +89,7 @@
 // }
 // validOrNo (arr);
 // ___________________________________________________________________________________
-// 2. На основе массива arr, создать массив объектов у которых поле b возведено в квадрат
+// 2. На основе массива arr, создать массив объектов у которых поле b возведено в квадрат //?
 
 // let arr = [
 //     {a: 2, b: 1},   
@@ -210,8 +210,6 @@
 // },1000); // person showStack
 // setTimeout(person2.showStack.bind(person2),1000 ); // person2 showStack
 // ___________________________________________________________________________________
-
-
 // 1. Дан объект:
 // var person = {
 // name:’Pablo Picasso’
@@ -340,3 +338,5 @@
 // lines.getLineLenght(lines.line3.point1,lines.line3.point2);
 // lines.canTriniagle (lines.arr);
 // console.log (lines);
+
+

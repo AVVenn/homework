@@ -15,7 +15,7 @@
 // }   alert (arr);
 //     alert (arr.length);
 
-
+// ______________________________________________________________________________________________________
 
 // 2. Создать случайный массив из 10 чисел. Вывести на экран
 // количество четных чисел из этого массива.
@@ -27,6 +27,12 @@
 //     }
 // } alert (counter);
 
+// В2.
+// let arr = [2,5,7,6,10,4,14,20,12,23];
+// let arr2 = arr.filter(item => item%2 === 0);
+// console.log(arr2.length);
+
+// ______________________________________________________________________________________________________
 
 // 3. Создать случайный массив из 10 чисел. Вывести на экран
 // наибольшее число из этого массива.
@@ -48,12 +54,24 @@
 // alert (arr[arr.length - 1]);
 // alert (arr);
 
+// В2.
+// let arr = [2,5,7,6,23,4,14,20,12,10];
+// let b = arr.reduce((accum, item) => {
+// 	if (accum < item) {
+// 		accum = item;
+// 	};
+// 	return accum;
+// });
+// console.log(b);
+// ______________________________________________________________________________________________________
+
 // 4. Дана строка «Мы любим JavaScript». Используя
 // метод split, создайте на основе это строки
 // массив.(Вывод данных: Мы,любим,JavaScript).
 
 // let arr = "Мы любим JavaScript".split (" ");
 // alert (arr); 
+// ______________________________________________________________________________________________________
 
 // 5.Дан массив ["Мы","любим","JavaScript"]. Используя
 // метод join, создайте и выведите строку. В качестве
@@ -61,7 +79,7 @@
 
 // let arr = ["Мы", "любим", "JavaScript"];
 // alert(arr.join("!"));
-
+// ______________________________________________________________________________________________________
 
 // 6.Дан массив ["Я","великий","программист!"] с
 // помощью метода indexOf, вывести на экран
@@ -69,7 +87,6 @@
 
 // let arr = ["Я","великий","программист!"];
 // alert (arr.indexOf("программист!"));
-
 // _________________________________________________________________________________________________________________
 // Задачи на новые методы
 
@@ -93,11 +110,7 @@
 
 // let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thomas'];
 // // people2.push (`Cемён`);
-// let result = people2.some ( function (item){
-//     if (item === `Cемён`) {
-//         return true;
-//     }
-// });
+// let result = people2.some ( item => item === `Cемён` ) ;
 // console.log (result);
 
 // _____________________________________________________________________________________________________
@@ -106,13 +119,9 @@
 // массива.
 
 // const arr = [1, 24, 48, ,73, 37, 102];
-// let result = arr.reduce( function (accum, item) {
-//     if (item % 2 === 0) {
-//         accum += item;
-//     } 
-//     return accum
-// },0 );
+// let result = arr.reduce( (accum, item) => (item % 2 === 0) ? accum += item : accum, 0 );
 // console.log (result);
+
 // _____________________________________________________________________________________________________
 // 5. Пользователь вводит 10 случайных значений. Каждое
 // значение необходимо записать в массив. С помощью
@@ -123,18 +132,12 @@
 // for (let i = 0; i < 3; i++){
 //     arr.push(+prompt(`Введите число`));
 // }
-// let result = arr.every (function (item){
-//     if(item === +item){
-//         return true;
-//     }
-// });
-
+// let result = arr.every ( item => item === +item);
 // console.log (result);
 // _____________________________________________________________________________________________________
 // 1. Даны 2 массива:
 // let people1 = ['Samuel', 'Jack', 'Thomas','Henry','Leo','Connor','David','Ryan'];
 // let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thomas'];
-
 // 1.1 Пользователь вводит имя, если это имя есть в массиве people1, добавьте это имя в конец people2.
 // 1.2 Пользователь вводит имя, если это имя есть в массиве people2, удалите это имя из массива.
 // 1.3 Создайте массив только из тех имен, которые совпадают в обоих массивах.
@@ -142,28 +145,30 @@
 // 1.5 Отсортируйте получившийся массив по алфавиту
 
 
-let people1 = ['Samuel', 'Jack', 'Thomas','Henry','Leo','Connor','David','Ryan'];
-let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thomas'];
+// let people1 = ['Samuel', 'Jack', 'Thomas','Henry','Leo','Connor','David','Ryan'];
+// let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thomas'];
 // let currentName = prompt(`Введите имя`);
 
 // 1.1
-// let checkcurrentName = people1.map( function (item){
-//     if (currentName === item){
-//         return people2.push(currentName);
-//     }
-// });
+// let checkCurrentName = people1.forEach(item => (currentName === item)? people2.push(currentName) : people2);
 // console.log(people2);
+
 // _____________________________________________________________________________________________________
 // 1.2
-// let checkcurrentName = people2.map( function(item, index) {
-//     if (currentName === item) {
-//         return people2.splice(index,1);
-//     }
-// });
-// console.log(people2);
-// console.log(checkcurrentName);
+
+// let checkCurrentName = people2.filter ( item => (item !== currentName)? true : false);
+// console.log(checkCurrentName);
+
 // _____________________________________________________________________________________________________
 // 1.3
+
+
+// let newPeople = [...people1, ...people2].filter ( (item,index) => [...people1, ...people2].indexOf(item) !== index);
+//* Есть исходный массив и с помощью filter мы получаем item  и его индекс по порядку , проверяем иисходный массив через indexOf на наличие этого item ,  indexOf(item) вместо себя подставит индекс и если ооон будет  не равен индексу , то можно оставлять,если равен ,значит не повторяется.
+// console.log(newPeople);
+
+
+// СТАРОЕ РЕШЕНИЕ
 // let resultArray = [];
 // let theSameElements = [].concat (people1, people2);
 // theSameElements.filter(function (item, index){
@@ -176,6 +181,14 @@ let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thoma
 // _____________________________________________________________________________________________________
 
 // 1.4 
+
+// let vremenno = [...people1, ...people2];
+// let newPeople = vremenno.filter ( (item,index) => vremenno.indexOf(item) === index);
+// console.log(newPeople.sort());
+// Есть исходный массив и с помощью filter мы получаем item  и его индекс по порядку , проверяем иисходный массив через indexOf на наличие этого item ,  indexOf(item) вместо себя подставит индекс и если ооон будет равен индексу , то можно оставлять,если не равен ,значит повторяется.
+
+
+// СТАРОЕ РЕШЕНИЕ
 // let withoutDuplicates = people1.filter (function(item){
 //     if (people2.includes(item) === false){
 //         people2.push(item);
@@ -183,7 +196,5 @@ let people2 = ['Connor','Stanley','Leo', 'Albert','Owen','Oliver','Ethan','Thoma
 // })
 // console.log(people2);
 // console.log(people2.sort());    //1.5
-
-
 
 // _____________________________________________________________________________________________________

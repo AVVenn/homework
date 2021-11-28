@@ -113,35 +113,35 @@
 // if (i === 0) {
 //     oldNum = prompt('enter number');
 // }
-'use strict';
+// 'use strict';
 
 
-function a () {}
-const foo = a;
+// function a () {}
+// const foo = a;
 
-const arr = [
-    function () {},
-    function () {}
-];
+// const arr = [
+//     function () {},
+//     function () {}
+// ];
 
 
 
-function sum (a,b) {
-    return a + b;
-}
+// function sum (a,b) {
+//     return a + b;
+// }
 
-function sub (a,b) {
-    return a - b;
-}
+// function sub (a,b) {
+//     return a - b;
+// }
 
-function spyMe (zhertva) {
-    return function (a,b) {
-        console.log('СЛЕЖКА!',a,b)
-        return zhertva(a,b);
-    }
-}
+// function spyMe (zhertva) {
+//     return function (a,b) {
+//         console.log('СЛЕЖКА!',a,b)
+//         return zhertva(a,b);
+//     }
+// }
 
-const spiedSum = spyMe(sum);
+// const spiedSum = spyMe(sum);
 
 
 
