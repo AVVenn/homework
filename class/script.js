@@ -451,28 +451,156 @@
 //     }
 // }
 
+// _________________________________________________________________________________________________________
+// создать класс Lada 
+// инстанс лады должен обладать полями 
+// model (строго определнный набор) (сокрытый статик)
+// ['vesta', 'xray', 'niva', 'granta', 'priora']
+// new Lada ('x5', 24000, 1990) ===>>> {model:'vesta'}
+// price число, не может быть ниже 0 
+// yearOfProduction число 
+// у всех лад должно быть вычисляемое свойтво age 
+// age не должен быть доступен для ЗАПИСИ
 
+// class Lada {
+//     static #models = ['vesta', 'xray', 'niva', 'granta', 'priora'];
+//     static addModel = function (model) {
+//         this.#models.push(model);
+//     }
 
+//     #price = 0;
+//     #year = 0;
 
+//     constructor (model, price, year) {
+//         this.model = Lada.#models.includes(model) ? model : Lada.#models[0] ;
+//         this.#price = price < 0 ? 0 : price;
+//         this.#year = year;
+//     }
 
+//     get price () {
+//         return this.#price + '$';
+//     }
+//     set price (price) {
+//         this.#price = price < 0 ? this.#price : price;
+//     }
 
+//     get age () {
+//         const currentYear = new Date().getFullYear();
+//         return currentYear - this.#year;
+//     }
+// }
 
+// const lada = new Lada('priora', 20000, 1990);
 
+// console.log(lada.age);
 
+// _________________________________________________________________________________________________________
 
+// создать класс Lada 
+// инстанс лады должен обладать полями 
+// model (строго определнный набор) (сокрытый статик)
+// ['vesta', 'xray', 'niva', 'granta', 'priora']
+// new Lada ('x5', 24000, 1990) ===>>> {model:'vesta'}
+// price число, не может быть ниже 0 
+// yearOfProduction число 
+// у всех лад должно быть вычисляемое свойтво age 
+// age не должен быть доступен для ЗАПИСИ
 
+// class ModelError extends Error {}
+// class PriceError extends Error {}
 
+// class Lada {
+//     static #models = ['vesta', 'xray', 'niva', 'granta', 'priora'];
+//     static addModel = function (model) {
+//         this.#models.push(model);
+//     }
 
+//     #price = 0;
+//     #year = 0;
 
+//     constructor (model, price, year) {
+        
 
+//         if (Lada.#models.includes(model)) {
+//             this.model = model;
+//         } else {
+//             const myErr = new ModelError(`no ${model} model exist`);
+//             throw myErr;
+//         }
 
+//         if (price > 0 ) {
+//             this.#price = price;
+//         } else {
+//             throw new PriceError(`price ${price} is lower than zero and cant be set`);
+//         }
 
+//         this.#year = year;
+//     }
 
+//     get price () {
+//         return this.#price + '$';
+//     }
+//     set price (price) {
+//         this.#price = price < 0 ? this.#price : price;
+//     }
 
+//     get age () {
+//         const currentYear = new Date().getFullYear();
+//         return currentYear - this.#year;
+//     }
+// }
 
+// const price = +prompt('ente your price');
 
+// let lada;
+
+// try {
+//     lada = new Lada('vesta', price, 1990);
+// } catch (err) {
+//     console.log(err);
+//     if (err instanceof PriceError) {
+//         lada = new Lada('priora', -price, 1990);
+//     } else if (err instanceof ModelError) {
+//         lada = new Lada('vesta', price, 1990);
+//     } else {
+//         throw err;
+//     }    
+// }
+
+// console.log(lada);
 
 // ____________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // class Human {
 //     constructor (name, age){
@@ -534,3 +662,13 @@
 //     surname: { value: "Smith", writable: false },
 //     // ...
 //   });
+
+
+
+
+
+
+
+
+
+
